@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\InvoiceDetail;
+use App\Models\User;
 use Illuminate\Http\Request;
 
-class InvoiceDetailController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +14,9 @@ class InvoiceDetailController extends Controller
      */
     public function index()
     {
-        $invoiceDetail = InvoiceDetail::all();
+        $users = User::all();
 
-        return view('admin.invoice_details',compact('invoiceDetails'));
+        return view('admin.users.index',compact('users'));
     }
 
     /**
@@ -43,10 +43,10 @@ class InvoiceDetailController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\InvoiceDetail  $invoiceDetail
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(InvoiceDetail $invoiceDetail)
+    public function show($id)
     {
         //
     }
@@ -54,10 +54,10 @@ class InvoiceDetailController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\InvoiceDetail  $invoiceDetail
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(InvoiceDetail $invoiceDetail)
+    public function edit($id)
     {
         //
     }
@@ -66,10 +66,10 @@ class InvoiceDetailController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\InvoiceDetail  $invoiceDetail
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, InvoiceDetail $invoiceDetail)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -77,10 +77,10 @@ class InvoiceDetailController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\InvoiceDetail  $invoiceDetail
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(InvoiceDetail $invoiceDetail)
+    public function destroy($id)
     {
         //
     }

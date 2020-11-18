@@ -79,7 +79,7 @@
 
     <h2>Login Form</h2>
 
-    <form action="{{ route('admin.dashboard') }}" method="POST">
+    <form action="{{ route('admin.login') }}" method="POST">
         @csrf
 
         <div class="imgcontainer">

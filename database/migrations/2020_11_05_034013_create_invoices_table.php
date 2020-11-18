@@ -15,20 +15,17 @@ class CreateInvoicesTable extends Migration
     {
         Schema::create('invoices', function (Blueprint $table) {
             $table->id();
-            $table->intger('voucher');
+            $table->integer('voucher');
             $table->integer('payment');
             $table->string('address');
-
-            // user_id
             $table->unsignedBigInteger('user_id');
-            $table->index(["user_id"], 'fk_invoices_users1_idx');
             $table->nullableTimestamps();
+            // user_id
+            $table->index(["user_id"], 'fk_invoices_users1_idx');
             $table->foreign('user_id', 'fk_invoices_users1_idx')
                 ->references('id')->on('users')
                 ->onDelete('no action')
                 ->onUpdate('no action');
-
-            $table->nullableTimestamps();
         });
     }
 

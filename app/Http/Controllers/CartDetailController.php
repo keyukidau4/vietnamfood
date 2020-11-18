@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\FoodType;
+use App\Models\CartDetail;
 use Illuminate\Http\Request;
 
-class FoodTypeController extends Controller
+class CartDetailController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,9 @@ class FoodTypeController extends Controller
      */
     public function index()
     {
-        //
+        $cartDetails = CartDetail::all();
+
+        return view('admin.cart_details',compact('cartDetails'));
     }
 
     /**
@@ -41,10 +43,10 @@ class FoodTypeController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\FoodType  $foodType
+     * @param  \App\Models\CartDetail  $cartDetail
      * @return \Illuminate\Http\Response
      */
-    public function show(FoodType $foodType)
+    public function show(CartDetail $cartDetail)
     {
         //
     }
@@ -52,10 +54,10 @@ class FoodTypeController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\FoodType  $foodType
+     * @param  \App\Models\CartDetail  $cartDetail
      * @return \Illuminate\Http\Response
      */
-    public function edit(FoodType $foodType)
+    public function edit(CartDetail $cartDetail)
     {
         //
     }
@@ -64,10 +66,10 @@ class FoodTypeController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\FoodType  $foodType
+     * @param  \App\Models\CartDetail  $cartDetail
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, FoodType $foodType)
+    public function update(Request $request, CartDetail $cartDetail)
     {
         //
     }
@@ -75,10 +77,10 @@ class FoodTypeController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\FoodType  $foodType
+     * @param  \App\Models\CartDetail  $cartDetail
      * @return \Illuminate\Http\Response
      */
-    public function destroy(FoodType $foodType)
+    public function destroy(CartDetail $cartDetail)
     {
         //
     }

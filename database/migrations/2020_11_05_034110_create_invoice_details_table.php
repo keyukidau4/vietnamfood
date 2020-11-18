@@ -17,26 +17,22 @@ class CreateInvoiceDetailsTable extends Migration
             $table->id();
             $table->integer('amount');
             $table->integer('price');
-
-            // invoice_id
             $table->unsignedBigInteger('invoice_id');
-            $table->index(["invoice_id"], 'fk_invoices_foods1_idx');
-            $table->foreign('invoice_id', 'fk_invoices_foods1_idx')
+            $table->unsignedBigInteger('food_id');
+            $table->nullableTimestamps();
+            // invoice_id
+            $table->index(["invoice_id"], 'fk_invoice_details_invoices1_idx');
+            $table->foreign('invoice_id', 'fk_invoice_details_invoices1_idx')
                 ->references('id')->on('invoices')
                 ->onDelete('no action')
                 ->onUpdate('no action');
             // food_id
-            $table->unsignedBigInteger('food_id');
-            $table->index(["food_id"], 'fk_carts_foods1_idx');
-            $table->foreign('food_id', 'fk_carts_foods1_idx')
+            $table->index(["food_id"], 'fk_invoice_details_foods1_idx');
+            $table->foreign('food_id', 'fk_invoice_details_foods1_idx')
                 ->references('id')->on('foods')
                 ->onDelete('no action')
                 ->onUpdate('no action');
 
-            $table->integer('amount');
-            $table->nullableTimestamps();
-
-            $table->timestamps();
         });
     }
 

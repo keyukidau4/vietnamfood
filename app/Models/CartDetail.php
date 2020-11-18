@@ -5,22 +5,21 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class InvoiceDetail extends Model
+class CartDetail extends Model
 {
     use HasFactory;
-
     protected $fillable = [
-        'amount',
-        'price',
-        'invoice_id',
-        'food_id',
+        'cart_id','food_id','amount',
     ];
 
     protected $cast = [
         'id' => 'integer',
-        'amount' => 'integer',
-        'price' => 'integer',
-        'invoice_id' => 'integer',
+        'cart_id' => 'integer',
         'food_id' => 'integer',
+        'amount' => 'integer',
+    ];
+
+    public static $rule = [
+        'food_id' => 'required',
     ];
 }

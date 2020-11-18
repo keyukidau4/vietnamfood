@@ -1,6 +1,9 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CartController;
+use App\Http\Controllers\UserController;
+use App\Models\Food;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,7 +18,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $foods = Food::all();
+    return view('welcome',compact("foods"));
 });
 
 Route::get('/cart', function () {
@@ -31,5 +35,8 @@ Route::prefix('admin')->name('admin.')->middleware('admin')->group(function(){
     Route::get('logout',[AdminController::class, 'logout'])->name('logout');
 
     Route::get('dasboard', [AdminController::class, 'dashboard'])->name('dashboard');
-});
 
+    Route::resource('users',UserController::class);// Cú pháp laravel 8
+
+    Route::resource('carts',CartController::class);// Cú pháp laravel 8
+});

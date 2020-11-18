@@ -12,9 +12,11 @@ class AdminController extends Controller
 {
     public function returnViewLogin()
     {
-        if (Auth::guard('admins')->check()) {
-            return Redirect::route('admin.dasboard');
-        }
+        // if (Auth::guard('admins')->check()) {
+
+        //     return Redirect::route('admin.dasboard');
+        // }
+
         return view('admin.login');
     }
 
@@ -28,6 +30,7 @@ class AdminController extends Controller
 
             return Redirect::route('admin.dashboard')->with('login_success','正常にログインしました。');
         }
+
         return Redirect::route('admin.login')->withInput(['email'=>$request->email], ['login_fail','ログインに失敗しました。']);
     }
 

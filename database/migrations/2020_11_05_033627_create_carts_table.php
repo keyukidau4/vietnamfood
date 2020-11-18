@@ -15,16 +15,8 @@ class CreateCartsTable extends Migration
     {
         Schema::create('carts', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('food_id');
             $table->unsignedBigInteger('user_id');
-            $table->integer('amount');
             $table->nullableTimestamps();
-            // food_id
-            $table->index(["food_id"], 'fk_carts_foods1_idx');
-            $table->foreign('food_id', 'fk_carts_foods1_idx')
-                ->references('id')->on('foods')
-                ->onDelete('no action')
-                ->onUpdate('no action');
             // user_id
             $table->index(["user_id"], 'fk_carts_users1_idx');
             $table->foreign('user_id', 'fk_carts_users1_idx')

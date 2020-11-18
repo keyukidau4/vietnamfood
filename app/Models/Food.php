@@ -33,4 +33,12 @@ class Food extends Model
         'namejp' => 'required',
         'image' => 'mimes:jpeg,jpg,png,svg|required|max:20000',
     ];
+
+    public static $create_rule = [
+        'namevn'=>'required|string',
+        'namejp'=>'required|string',
+        'price'=>'required|integer',
+        'image'=>'required|file|mimes:jpeg,png|max:1000',
+    ];
+
 }

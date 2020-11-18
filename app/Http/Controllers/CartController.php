@@ -14,7 +14,9 @@ class CartController extends Controller
      */
     public function index()
     {
-        //
+        $carts = Cart::all();
+
+        return view('admin.carts.index',compact('carts'));
     }
 
     /**
